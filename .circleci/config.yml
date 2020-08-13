@@ -6,11 +6,11 @@ jobs:
     working_directory: /lighthouse-pg
     steps:
       - attach_workspace:
-          at: ~/repo
-      - restore_cache:
-          keys:
-            - dependencies-{{ checksum "package.json" }}-{{ .Environment.CACHE_VERSION }}
-            - dependencies-{{ .Environment.CACHE_VERSION }}
+          at: /lighthouse-pg
+#      - restore_cache:
+#          keys:
+#            - dependencies-{{ checksum "package.json" }}-{{ .Environment.CACHE_VERSION }}
+#            - dependencies-{{ .Environment.CACHE_VERSION }}
       - run: sudo npm install -g @lhci/cli@0.3.x
       - run:
           name: lhci autorun
