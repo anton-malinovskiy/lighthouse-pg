@@ -5,24 +5,9 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
-run_lighthouse:
-  variables:
-    LIGHTHOUSE_TEST_URL: https://www.prettygreen.com
-  stage: deploy
-  environment: Production
-  only:
-    - master
-  before_script:
-    # Install Lighthouse
-    - npm i -g lighthouse
-  script:
-    # Run Lighthouse test
-    - lighthouse --chrome-flags="--headless --no-sandbox" $LIGHTHOUSE_TEST_URL --output html --output-path ./report.html
-  artifacts:
-    paths:
-      - ./report.html
-    expire_in: 1 week
-
-
-
-
+workflows:
+  # Name the workflow "welcome"
+  welcome:
+    # Run the welcome/run job in its own container
+    jobs:
+      - welcome/run
