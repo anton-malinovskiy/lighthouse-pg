@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.16-browsers
-    working_directory: ~/your-project
+    working_directory: ~/lighthouse-pg
     steps:
       - checkout
       - run: npm install
