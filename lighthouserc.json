@@ -1,0 +1,21 @@
+{
+  "ci": {
+    "collect": {
+      "collect": {
+        "url": [
+          "https://www.prettygreen.com"
+        ],
+        "numberOfRuns": 3
+      }
+    },
+    "assert": {
+      // assert options here
+    },
+    "upload": {
+      // upload options here
+    },
+    "server": {
+      // server options here
+    }
+  }
+}
