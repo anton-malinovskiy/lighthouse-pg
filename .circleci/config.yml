@@ -15,4 +15,4 @@ jobs:
       - run:
           name: lhci autorun
           command: |
-            lhci autorun
+            lhci assert --config=./lighthouserc.json --url=https://www.prettygreen.com
