@@ -15,4 +15,4 @@ jobs:
       - run:
           name: lhci autorun
           command: |
-            lhci autorun
+            lhci autorun --config=./lighthouserc.json
