@@ -1,12 +1,17 @@
-version: 2.1
-jobs:
-  build:
-    docker:
-      - image: circleci/node:10.16-browsers
-    working_directory: /lighthouse-pg
-    steps:
-      - checkout
-      - run: npm install
-      - run: npm run build
-      - run: sudo npm install -g @lhci/cli@0.4.x
-      - run: lhci autorun
+perf:
+  docker:
+    # make sure you use an image that has browsers installed
+    - image: circleci/node:12.1-browsers
+  working_directory: /lighthouse-pg
+  steps:
+    - attach_workspace:
+        at: /lighthouse-pg
+    - restore_cache:
+        keys:
+          - dependencies-{{ checksum "package.json" }}-{{ .Environment.CACHE_VERSION }}
+          - dependencies-{{ .Environment.CACHE_VERSION }}
+    - run: sudo npm install -g @lhci/cli@0.3.x
+    - run:
+        name: lhci autorun
+        command: |
+          lhci autorun
