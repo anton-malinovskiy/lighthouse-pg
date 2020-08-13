@@ -1,19 +1,21 @@
 {
   "ci": {
-      "collect": {
-        "url": [
-          "https://www.prettygreen.com"
-        ],
-        "numberOfRuns": 3
-      },
+    "collect": {
+      "numberOfRuns": 2
+    },
     "assert": {
-      // assert options here
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "first-contentful-paint": [
+          "error",
+          {"maxNumericValue": 5000, "aggregationMethod": "optimistic"}
+        ],
+        "interactive": ["error", {"maxNumericValue": 9000, "aggregationMethod": "optimistic"}]
+      }
     },
     "upload": {
-      // upload options here
-    },
-    "server": {
-      // server options here
+      "target": "lhci",
+      "serverBaseUrl": "https://lhci.example.com"
     }
   }
 }
