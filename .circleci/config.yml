@@ -1,11 +1,12 @@
-name: CI
-on: [push]
+version: 2.1
 jobs:
-  lighthouseci:
-    runs-on: ubuntu-latest
+  build:
+    docker:
+      - image: circleci/node:10.16-browsers
+    working_directory: ~/your-project
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install && npm install -g @lhci/cli@0.4.x
+      - checkout
+      - run: npm install
       - run: npm run build
+      - run: sudo npm install -g @lhci/cli@0.4.x
       - run: lhci autorun
