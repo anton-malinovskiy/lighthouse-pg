@@ -3,10 +3,10 @@ jobs:
   build:
     docker:
       - image: circleci/node:12.1-browsers
-    working_directory: /tmp/lighthouse-pg
+    working_directory: /tmp/lighthouse-pg/
     steps:
       - attach_workspace:
-          at: /tmp/lighthouse-pg
+          at: /tmp/lighthouse-pg/
 #      - restore_cache:
 #          keys:
 #            - dependencies-{{ checksum "package.json" }}-{{ .Environment.CACHE_VERSION }}
