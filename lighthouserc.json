@@ -15,7 +15,7 @@
     },
     "upload": {
       "target": "lhci",
-      "serverBaseUrl": "https://lhci.example.com"
+      "serverBaseUrl": "https://www.prettygreen.com"
     }
   }
 }
