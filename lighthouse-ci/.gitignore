@@ -1,0 +1,8 @@
+*.tmp.sql
+*.tmp.json
+.lighthouseci/
+.cache/
+dist/
+node_modules/
+
+storybook-static
