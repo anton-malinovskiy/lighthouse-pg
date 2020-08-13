@@ -15,4 +15,4 @@ jobs:
       - run:
           name: lhci autorun
           command: |
-            lhci autorun
+            lhci --no-lighthouserc autorun --collect.url=https://www.prettygreen.com
