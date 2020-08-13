@@ -6,7 +6,7 @@ jobs:
     working_directory: /tmp/lighthouse-pg
     steps:
       - attach_workspace:
-          at: /tmp/lighthouse-pg
+          at: /lighthouse-pg
 #      - restore_cache:
 #          keys:
 #            - dependencies-{{ checksum "package.json" }}-{{ .Environment.CACHE_VERSION }}
@@ -15,4 +15,4 @@ jobs:
       - run:
           name: lhci autorun
           command: |
-            lhci autorun --config=./lighthouserc.json
+            lhci autorun
